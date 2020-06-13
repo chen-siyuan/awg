@@ -35,7 +35,7 @@ class Extractor:
         paragraphs = tree.xpath('//p')
         i = 0
 
-        while i + 1 < len(paragraphs) and paragraphs[i].text_content().find('the') == -1:
+        while i + 1 < len(paragraphs) and paragraphs[i].text_content().find('the') == -1 and paragraphs[i].text_content().find('Find') == -1:
             i += 1
 
         return paragraphs[i]

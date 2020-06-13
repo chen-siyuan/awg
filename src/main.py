@@ -9,7 +9,8 @@ def get_problem(exam: str, year: int, problem: int) -> str:
 
 
 def main():
-    filewriter.write_file('output/test.md', get_problem('AMC_12A', 2003, 30))
+    for i in range(15):
+        filewriter.write_file('output/test.md', get_problem('AIME_II', 2020, i + 1) + '\n', mode='a')
 
 
 if __name__ == '__main__':
