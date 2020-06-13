@@ -1,6 +1,6 @@
-from aops.generator import Generator as generator
-from aops.extractor import Extractor as extractor
-from aops.filewriter import FileWriter as filewriter
+from generator import Generator as generator
+from extractor import Extractor as extractor
+from filewriter import FileWriter as filewriter
 
 
 def get_problem(exam: str, year: int, problem: int) -> str:

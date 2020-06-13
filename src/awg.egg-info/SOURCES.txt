@@ -1,4 +1,4 @@
-README.rst
+README.md
 setup.py
 src/awg/__init__.py
 src/awg.egg-info/PKG-INFO
