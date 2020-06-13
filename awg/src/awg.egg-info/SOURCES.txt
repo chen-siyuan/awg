@@ -1,8 +1,0 @@
-README.rst
-setup.py
-src/awg/__init__.py
-src/awg.egg-info/PKG-INFO
-src/awg.egg-info/SOURCES.txt
-src/awg.egg-info/dependency_links.txt
-src/awg.egg-info/requires.txt
-src/awg.egg-info/top_level.txt
