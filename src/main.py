@@ -9,8 +9,7 @@ def get_problem(exam: str, year: int, problem: int) -> str:
 
 
 def main():
-    print(generator.generate_url('AMC_12A', 2002, 5))
-    filewriter.write_file('output/test.md', get_problem('AMC_12A', 2002, 5))
+    filewriter.write_file('output/test.md', get_problem('AMC_12A', 2003, 30))
 
 
 if __name__ == '__main__':
