@@ -4,38 +4,18 @@ Extract content from url
 
 
 import requests
-from lxml import html
+from bs4 import BeautifulSoup
+from bs4.element import NavigableString
 
 
 class Extractor:
 
     @classmethod
-    def extract_text_with_latex(cls, paragraph: html.Element) -> str:
-
-        text = paragraph.text_content()
-        print(text)
-        expressions = list(map(lambda img: img.attrib['alt'],
-                               paragraph.getchildren()))
-
-        i = 0
-        while i < len(text):
-            if text[i] == ' ' and text[i + 1] in {
-                    ' ', '.', ',', '?', '\xa0', '\n'}:
-                text = text[:i + 1] + expressions.pop(0) + text[i + 1:]
-            i += 1
-
-        return text.rstrip()
-
-    @classmethod
-    def extract_paragraph(cls, url: str) -> html.Element:
-
-        page = requests.get(url)
-        tree = html.fromstring(page.text)
-
-        paragraphs = tree.xpath('//p')
-        i = 0
-
-        while i + 1 < len(paragraphs) and paragraphs[i].text_content().find('the') == -1 and paragraphs[i].text_content().find('Find') == -1:
-            i += 1
-
-        return paragraphs[i]
+    def extract_question(cls, url: str) -> str:
+        res = ''
+        soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+        for div in soup.find_all('div'):
+            if div.has_attr('class') and div['class'][0] == 'mw-parser-output':
+                for descendant in div.p.descendants:
+                    res += descendant if isinstance(descendant, NavigableString) else descendant['alt']
+        return res
