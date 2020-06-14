@@ -14,8 +14,17 @@ class Filewriter:
             output.write(content)
 
     @classmethod
-    def write_pdf_from_tex(cls, tex_filename: str, latex_filename: str = None):
+    def write_pdf_from_tex(cls, tex_filename: str, pdf_filename: str = None):
+
+        assert tex_filename.endswith('.tex'), '"{}" is not a valid .tex file name'.format(tex_filename)
+
+        if pdf_filename is None:
+            pdf_filename = tex_filename[:-4]
+        if pdf_filename[0] == '/':
+            pdf_filename = pdf_filename[1:]
+        if pdf_filename.endswith('.pdf'):
+            pdf_filename = pdf_filename[:-4]
+
         pdfl = PDFLaTeX.from_texfile(tex_filename)
-        if latex_filename:
-            pdfl.set_jobname(latex_filename)
+        pdfl.set_jobname(pdf_filename)
         pdfl.create_pdf(keep_pdf_file=True)
