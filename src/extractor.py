@@ -1,8 +1,3 @@
-"""
-Extract content from url
-"""
-
-
 import requests
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString

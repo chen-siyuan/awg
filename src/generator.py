@@ -1,15 +1,9 @@
-"""
-Generate url used by the Extractor
-"""
-
-
 class Generator:
 
     exams = {'AMC_8',
              'AMC_10', 'AMC_10A', 'AMC_10B',
              'AMC_12', 'AMC_12A', 'AMC_12B',
              'AIME', 'AIME_I', 'AIME_II'}
-
 
     @classmethod
     def validate_input(cls, exam: str, year: int, problem: int) -> None:
@@ -30,7 +24,6 @@ class Generator:
             assert 1 <= problem <= 15, '"{}" is an invalid problem for "{}"'.format(problem, exam)
         else:
             assert 1 <= problem <= 25, '"{}" is an invalid problem for "{}"'.format(problem, exam)
-
 
     @classmethod
     def generate_url(cls, exam: str, year: int, problem: int) -> str:
