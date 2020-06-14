@@ -1,4 +1,6 @@
 from pdflatex import PDFLaTeX
+from pylatex import Document, Section, Command
+from pylatex.utils import NoEscape
 
 
 class Filewriter:
@@ -28,3 +30,12 @@ class Filewriter:
         pdfl = PDFLaTeX.from_texfile(tex_filename)
         pdfl.set_jobname(pdf_filename)
         pdfl.create_pdf(keep_pdf_file=True)
+
+
+'''doc = Document('test')
+doc.preamble.append(Command('title', 'TITLE'))
+doc.preamble.append(Command('author', 'Daniel Chen'))
+doc.preamble.append(Command('date', r'\today'))
+doc.generate_tex()
+'''
+Filewriter.write_pdf_from_tex('test.tex', 'test3.pdf')
