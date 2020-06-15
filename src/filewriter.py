@@ -43,16 +43,7 @@ class Filewriter:
 
     def write_section(self, section_name: str, content: str):
         with self.doc.create(Section(section_name)):
-            self.doc.append(content)
+            self.doc.append(NoEscape(content))
 
     def write_tex(self):
         self.doc.generate_tex()
-
-
-f = Filewriter('hello')
-f.write_preamble('Problem set', 'Author', True)
-f.write_section('section 1', 'Something somethings')
-f.write_section('section 3', 'Sometsdf')
-f.write_tex()
-
-Filewriter.write_pdf_from_tex('hello.tex')
