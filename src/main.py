@@ -8,15 +8,17 @@ def get_problem(exam: str, year: int, problem: int) -> str:
 
 
 def main():
-    # Filewriter.prep_file('output/test.md')
-    # for i in range(15):
-        # Filewriter.write_file('output/test.md', get_problem('AIME_II', 2020, i + 1) + '\n', mode='a')
-    fw = Filewriter('output/2020_AIME_II')
-    fw.write_preamble('2020 AIME II Problems', 'MAA')
-    fw.write_section('Problems', '\n'.join([get_problem('AIME_II', 2020, i + 1) for i in range(15)]))
-    fw.write_tex()
+    '''filewriter = Filewriter('output/2019_AIME_II')
 
-    Filewriter.write_pdf_from_tex('output/2020_AIME_II.tex')
+    filewriter.write_preamble('2019 AIME II Problems', 'MAA')
+    for i in range(15):
+        filewriter.add_problem(get_problem('AIME_II', 2019, i + 1))
+        print(i)
+    filewriter.write_section('Problems')
+    filewriter.write_tex()'''
+
+    Filewriter.write_pdf_from_tex('output/2019_AIME_II.tex')
+
 
 if __name__ == '__main__':
     main()

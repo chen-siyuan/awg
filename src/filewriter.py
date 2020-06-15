@@ -1,9 +1,10 @@
 from pdflatex import PDFLaTeX
-from pylatex import Document, Section, Subsection, Command
-from pylatex.utils import NoEscape
+from pylatex import Document, Section, Subsection, Command, Enumerate, NoEscape
 
 
 class Filewriter:
+
+    unsupported_commands = {r'\tfrac': r'\frac'}
 
     @classmethod
     def prep_file(cls, filename: str, header: str = ''):
@@ -33,6 +34,12 @@ class Filewriter:
 
     def __init__(self, tex_filename):
         self.doc = Document(tex_filename)
+        self.problems = []
+
+    def add_problem(self, problem: str):
+        for unsupported, supported in Filewriter.unsupported_commands.items():
+            problem = problem.replace(unsupported, supported)
+        self.problems.append(problem)
 
     def write_preamble(self, title: str, author: str, with_date: bool = True):
         self.doc.preamble.append(Command('title', title))
@@ -41,9 +48,12 @@ class Filewriter:
             self.doc.preamble.append(Command('date', NoEscape(r'\today')))
         self.doc.append(NoEscape(r'\maketitle'))
 
-    def write_section(self, section_name: str, content: str):
+    def write_section(self, section_name: str):
         with self.doc.create(Section(section_name)):
-            self.doc.append(NoEscape(content))
+            with self.doc.create(Enumerate()) as enum:
+                for problem in self.problems:
+                    enum.add_item(NoEscape(problem))
+        self.problems = []
 
     def write_tex(self):
         self.doc.generate_tex()
