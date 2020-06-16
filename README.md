@@ -10,6 +10,6 @@ AWG uses [Requests](https://requests.readthedocs.io/en/master/) and [BeautifulSo
 
 |AMC 8|AMC 10|AMC 12|AIME|
 |---|---|---|---|
-|AMC_8|AMC_10|AMC_12|AIME|
-||AMC_10A|AMC_12A|AIME_I|
-||AMC_10B|AMC_12B|AIME_II|
+|AMC_8|AMC 10|AMC 12|AIME|
+||AMC 10A|AMC 2A|AIME I|
+||AMC 10B|AMC 12B|AIME II|
