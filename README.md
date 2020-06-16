@@ -9,7 +9,7 @@ AWG uses [Requests](https://requests.readthedocs.io/en/master/) and [BeautifulSo
 ## Supported Exams
 
 |AMC 8|AMC 10|AMC 12|AIME|
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 |AMC_8|AMC 10|AMC 12|AIME|
 ||AMC 10A|AMC 12A|AIME I|
 ||AMC 10B|AMC 12B|AIME II|
