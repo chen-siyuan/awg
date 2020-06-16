@@ -42,12 +42,18 @@ class Filewriter:
         self.problems.append(problem)
 
     def initialize_doc(self, title: str, author: str, with_date: bool = True):
+
         self.doc.packages.append(Package('amsmath'))  # To enable align
+        self.doc.packages.append(Package('hyperref'))  # To enable hyperlink
+
         self.doc.preamble.append(Command('title', title))
         self.doc.preamble.append(Command('author', author))
         if with_date:
             self.doc.preamble.append(Command('date', NoEscape(r'\today')))
         self.doc.append(NoEscape(r'\maketitle'))
+
+        with self.doc.create(Section('Acknowledgement')):
+            self.doc.append(NoEscape(r"All the following problems are copyrighted by the \href{https://www.maa.org/}{Mathematical Association of America}'s \href{https://www.maa.org/math-competitions}{American Mathematics Competitions}."))
 
     def add_section(self, section_name: str):
         with self.doc.create(Section(section_name)):
