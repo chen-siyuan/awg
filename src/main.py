@@ -8,16 +8,14 @@ def get_problem(exam: str, year: int, problem: int) -> str:
 
 
 def main():
-    filewriter = Filewriter('output/2019_AIME_II')
+    filewriter = Filewriter('output/2020_AIME_II')
 
-    filewriter.initialize_doc('2019 AIME II Problems', 'MAA')
+    filewriter.initialize_doc('2020 AIME II Problems', 'MAA')
     for i in range(15):
-        filewriter.add_problem_to_section(get_problem('AIME_II', 2019, i + 1))
+        filewriter.add_problem_to_section(get_problem('AIME_II', 2020, i + 1))
         print('Problem {} successfully added to tex file'.format(i + 1))
     filewriter.add_section('Problems')
     filewriter.write_tex()
-
-    Filewriter.write_pdf_from_tex('output/2019_AIME_II.tex')
 
 
 if __name__ == '__main__':
