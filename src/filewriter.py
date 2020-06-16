@@ -1,5 +1,5 @@
 from pdflatex import PDFLaTeX
-from pylatex import Document, Section, Subsection, Command, Enumerate, NoEscape
+from pylatex import Document, Section, Subsection, Command, Enumerate, NoEscape, Package
 
 
 class Filewriter:
@@ -36,19 +36,20 @@ class Filewriter:
         self.doc = Document(tex_filename)
         self.problems = []
 
-    def add_problem(self, problem: str):
+    def add_problem_to_section(self, problem: str):
         for unsupported, supported in Filewriter.unsupported_commands.items():
             problem = problem.replace(unsupported, supported)
         self.problems.append(problem)
 
-    def write_preamble(self, title: str, author: str, with_date: bool = True):
+    def initialize_doc(self, title: str, author: str, with_date: bool = True):
+        self.doc.packages.append(Package('amsmath'))  # To enable align
         self.doc.preamble.append(Command('title', title))
         self.doc.preamble.append(Command('author', author))
         if with_date:
             self.doc.preamble.append(Command('date', NoEscape(r'\today')))
         self.doc.append(NoEscape(r'\maketitle'))
 
-    def write_section(self, section_name: str):
+    def add_section(self, section_name: str):
         with self.doc.create(Section(section_name)):
             with self.doc.create(Enumerate()) as enum:
                 for problem in self.problems:
