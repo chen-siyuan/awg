@@ -5,7 +5,7 @@ AWG generates worksheets consisting of problems from [past AMC exams](https://ar
 ## Examples
 
 ![Code](assets/example_code.png)
-![Output](assets/exmaple_pdf.png)
+![Output](assets/example_pdf.png)
 
 ## Mechanism
 
