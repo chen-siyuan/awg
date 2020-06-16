@@ -2,7 +2,7 @@
 
 AWG generates worksheets consisting of problems from [past AMC exams](https://artofproblemsolving.com/wiki/index.php/AMC_Problems_and_Solutions) for **personal practice** purposes.
 
-## Examples
+## Screenshots
 
 ![Code](assets/example_code.png)
 ![Output](assets/example_pdf.png)
