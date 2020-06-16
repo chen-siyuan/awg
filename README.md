@@ -2,6 +2,10 @@
 
 AWG generates worksheets consisting of problems from [past AMC exams](https://artofproblemsolving.com/wiki/index.php/AMC_Problems_and_Solutions) for **personal practice** purposes.
 
+## Acknowledgement
+
+All problems are copyrighted by the [Mathematical Association of America](https://www.maa.org/)'s [American Mathematics Competitions](https://www.maa.org/math-competitions). This project would not be possible without [Overleaf](https://www.overleaf.com/).
+
 ## Screenshots
 
 ![Code](assets/example_code.png)
