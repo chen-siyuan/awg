@@ -17,16 +17,16 @@ def get_problem(exam: str, year: int, problem: int, description: str = '') -> st
 
 def main():
 
-    filewriter = Filewriter('output/2018_AIME_II')
+    filewriter = Filewriter('output/2020_AMC_12A')
 
-    filewriter.initialize_doc('2018 AIME II Problems', 'MAA')
-    for i in range(15):
-        filewriter.add_problem_to_section(get_problem('AIME_II', 2018, i + 1, description='number'))
+    filewriter.initialize_doc('2020 AMC 12 A Problems', 'MAA')
+    for i in range(25):
+        filewriter.add_problem_to_section(get_problem('AMC_12A', 2020, i + 1, description='number'))
         print('Problem {} successfully added to tex file'.format(i + 1))
     filewriter.add_section('Problems')
     filewriter.write_tex()
 
-    Filewriter.write_pdf_from_tex('output/2018_AIME_II.tex')
+    Filewriter.write_pdf_from_tex('output/2020_AMC_12A.tex')
 
 
 if __name__ == '__main__':

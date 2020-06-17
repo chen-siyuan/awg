@@ -4,7 +4,7 @@ from pylatex import Document, Section, Subsection, Command, Enumerate, NoEscape,
 
 class Filewriter:
 
-    unsupported_commands = {r'\tfrac': r'\frac', '•': r'$\cdot$'}
+    unsupported_commands = {r'\tfrac': r'\frac', '•': r'$\cdot$', r'$$':  r'$\$'}
 
     @classmethod
     def prep_file(cls, filename: str, header: str = ''):

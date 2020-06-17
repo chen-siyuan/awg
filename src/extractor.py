@@ -6,8 +6,8 @@ from bs4.element import NavigableString, Tag
 class Extractor:
 
     @classmethod
-    def extract_text(cls, tag: Tag) -> str:
-        assert isinstance(tag, Tag), 'extract_text() could only be used on Tags'
+    def extract_text_from_tag(cls, tag: Tag) -> str:
+        assert isinstance(tag, Tag), 'extract_text_from_tag() could only be used on Tags'
         if tag.name == 'i':
             return ''  # For some reason, <i> tags' texts are reproduced by a later navigable string
         if tag.name == 'img':
@@ -20,9 +20,18 @@ class Extractor:
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
         for div in soup.find_all('div'):
             if div.has_attr('class') and div['class'][0] == 'mw-parser-output':
-                for descendant in div.p.descendants:
-                    if isinstance(descendant, NavigableString):
-                        res += descendant
-                    else:
-                        res += cls.extract_text(descendant)
-        return res
+                flag = False
+                for child in div.children:
+                    if child.name == 'h2':
+                        if flag:
+                            return res
+                        else:
+                            flag = True
+                    elif child.name == 'p' and flag:
+                        for descendant in child.descendants:
+                            if isinstance(descendant, NavigableString):
+                                res += descendant
+                            else:
+                                res += cls.extract_text_from_tag(descendant)
+                        res += '\n'
+        return 'EXTRACTION ERROR: DID NOT FIND SECOND H2 TAG'
