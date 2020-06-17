@@ -31,6 +31,6 @@ All problems are copyrighted by the [Mathematical Association of America](https:
 
 AWG automatically substitutes some of the latex commands extracted from the html file to better accommodate the standards of PyLaTeX. Those substitutions are listed below:
 
-- '\tfrac' to '\frac'
-- '•' to '$\cdot$'
-- '$$' to '$\$
+```python
+unsupported_commands = {r'\tfrac': r'\frac', '•': r'$\cdot$', r'$$':  r'$\$'}
+```
