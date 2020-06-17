@@ -26,3 +26,11 @@ All problems are copyrighted by the [Mathematical Association of America](https:
 |AMC_8|AMC 10|AMC 12|AIME|
 ||AMC 10A|AMC 12A|AIME I|
 ||AMC 10B|AMC 12B|AIME II|
+
+## Formula Substitutions
+
+AWG automatically substitutes some of the latex commands extracted from the html file to better accommodate the standards of PyLaTeX. Those substitutions are listed below:
+
+- '\tfrac' to '\frac'
+- '•' to '$\cdot$'
+- '$$' to '$\$
