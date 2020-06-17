@@ -11,6 +11,14 @@ All problems are copyrighted by the [Mathematical Association of America](https:
 ![Code](assets/example_code.png)
 ![Output](assets/example_pdf.png?)
 
+## Features
+
+- Automatically extracts problems and generates tex and pdf files
+- Supports both inline and displayed formulas
+- Supports multiple choice problems
+- Supports unlimited number of problems within one worksheet
+- Generates randomized worksheets (**to be added**)
+
 ## Mechanism
 
 AWG uses [Requests](https://requests.readthedocs.io/en/master/) and [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to extract individual problems (text with formulas and diagrams) from [AOPS](https://artofproblemsolving.com/wiki/index.php/AMC_Problems_and_Solutions). It then writes the problems into a LaTeX file and exports it to a PDF using [PyLaTeX](https://jeltef.github.io/PyLaTeX/current/).
