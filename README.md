@@ -6,11 +6,6 @@ AWG generates worksheets consisting of problems from [past AMC exams](https://ar
 
 All problems are copyrighted by the [Mathematical Association of America](https://www.maa.org/)'s [American Mathematics Competitions](https://www.maa.org/math-competitions). This project would not be possible without [Overleaf](https://www.overleaf.com/).
 
-## Screenshots
-
-![Code](assets/example_code.png)
-![Output](assets/example_pdf.png?)
-
 ## Features
 
 - Automatically extracts problems and generates tex and pdf files
@@ -18,6 +13,11 @@ All problems are copyrighted by the [Mathematical Association of America](https:
 - Supports multiple choice problems
 - Supports unlimited number of problems within one worksheet
 - Generates randomized worksheets (**to be added**)
+
+## Screenshots
+
+![Code](assets/example_code.png)
+![Output](assets/example_pdf.png?)
 
 ## Supported Exams
 
